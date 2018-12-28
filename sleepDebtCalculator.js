@@ -53,16 +53,21 @@ const getSleepHours = (day) => {
     return totalHours
   }
   
-  // get Ideal Sleep Hours
-  const getIdealSleepHours = () => {
+  // get Global Ideal Sleep Hours
+  const getSetIdealSleepHours = () => {
     let idealHours = 8
     return idealHours * 7
   }
   
-  const calculateSleepDebt = () => {
+  // get User Ideal Sleep Hours
+  const getIdealSleepHours = (userIdealHours) => {
+    return userIdealHours * 7
+  }
+  
+  const calculateSleepDebt = (userIdealHours) => {
       // assign hours to variables
     actualSleepHours = getActualSleepHours();
-    idealSleepHours = getIdealSleepHours();
+    idealSleepHours = getIdealSleepHours(userIdealHours);
     // sleep hours equal
       if (actualSleepHours === idealSleepHours) {
       return "You got the perfect amount of sleep!"
@@ -76,4 +81,4 @@ const getSleepHours = (day) => {
   }
   
   // Print result
-  console.log(calculateSleepDebt())
+  console.log(calculateSleepDebt(7))
